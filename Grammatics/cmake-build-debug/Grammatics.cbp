@@ -95,9 +95,6 @@
 		<Unit filename="/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/main.cpp">
 			<Option target="Grammatics"/>
 		</Unit>
-		<Unit filename="/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/semantic_analysys.cpp">
-			<Option target="Grammatics"/>
-		</Unit>
 		<Unit filename="/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/syntax_analysys.h">
 			<Option target="Grammatics"/>
 		</Unit>

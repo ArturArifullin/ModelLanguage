@@ -201,30 +201,6 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Grammatics.dir/build.make CMakeFiles/Grammatics.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-semantic_analysys.o: semantic_analysys.cpp.o
-.PHONY : semantic_analysys.o
-
-# target to build an object file
-semantic_analysys.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Grammatics.dir/build.make CMakeFiles/Grammatics.dir/semantic_analysys.cpp.o
-.PHONY : semantic_analysys.cpp.o
-
-semantic_analysys.i: semantic_analysys.cpp.i
-.PHONY : semantic_analysys.i
-
-# target to preprocess a source file
-semantic_analysys.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Grammatics.dir/build.make CMakeFiles/Grammatics.dir/semantic_analysys.cpp.i
-.PHONY : semantic_analysys.cpp.i
-
-semantic_analysys.s: semantic_analysys.cpp.s
-.PHONY : semantic_analysys.s
-
-# target to generate assembly for a file
-semantic_analysys.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Grammatics.dir/build.make CMakeFiles/Grammatics.dir/semantic_analysys.cpp.s
-.PHONY : semantic_analysys.cpp.s
-
 systax_analysys_state.o: systax_analysys_state.cpp.o
 .PHONY : systax_analysys_state.o
 
@@ -267,9 +243,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... semantic_analysys.o"
-	@echo "... semantic_analysys.i"
-	@echo "... semantic_analysys.s"
 	@echo "... systax_analysys_state.o"
 	@echo "... systax_analysys_state.i"
 	@echo "... systax_analysys_state.s"

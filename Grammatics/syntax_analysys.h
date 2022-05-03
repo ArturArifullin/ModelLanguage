@@ -1,9 +1,10 @@
-#ifndef GRAMMATICS_SYNTAX_ANALYSYS_H
-#define GRAMMATICS_SYNTAX_ANALYSYS_H
-
 #include "lexical_analisys.h"
 #include <vector>
 #include <stack>
+#ifndef GRAMMATICS_SYNTAX_ANALYSYS_H
+#define GRAMMATICS_SYNTAX_ANALYSYS_H
+
+
 
 template <class T, class T_EL>
 void from_st ( T & st, T_EL & i ) {
@@ -37,11 +38,7 @@ class Parser {
     void  eq_bool ();
     void  eq_int();
     void  check_id_in_read ();
-    void  gl () {
-        curr_lex  = scan.get_lex ();
-        c_type    = curr_lex.get_type ();
-        c_val     = curr_lex.get_value ();
-    }
+    void  gl ();
 public:
     std::vector <Lex> poliz;
     Parser ( const char *program ) : scan (program) { }

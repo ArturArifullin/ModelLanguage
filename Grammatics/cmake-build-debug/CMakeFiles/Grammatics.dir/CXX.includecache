@@ -1,0 +1,52 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/interpratation.cpp
+interpretation.h
+/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/interpretation.h
+
+/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/interpretation.h
+syntax_analysys.h
+/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/syntax_analysys.h
+
+/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/lexical_analisys.cpp
+lexical_analisys.h
+/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/lexical_analisys.h
+
+/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/lexical_analisys.h
+iostream
+-
+string
+-
+cstdio
+-
+cstdlib
+-
+vector
+-
+stack
+-
+algorithm
+-
+
+/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/main.cpp
+interpretation.h
+/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/interpretation.h
+
+/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/syntax_analysys.h
+lexical_analisys.h
+/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/lexical_analisys.h
+vector
+-
+stack
+-
+
+/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/systax_analysys_state.cpp
+syntax_analysys.h
+/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/syntax_analysys.h
+

@@ -1,8 +1,7 @@
+#include "syntax_analysys.h"
 #ifndef GRAMMATICS_INTERPRETATION_H
 #define GRAMMATICS_INTERPRETATION_H
 
-#include "lexical_analisys.h"
-#include "syntax_analysys.h"
 
 class Executer {
 public:

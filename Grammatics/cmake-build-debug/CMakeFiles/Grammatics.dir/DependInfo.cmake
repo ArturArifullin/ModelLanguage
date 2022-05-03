@@ -11,7 +11,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/interpratation.cpp" "/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/cmake-build-debug/CMakeFiles/Grammatics.dir/interpratation.cpp.o"
   "/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/lexical_analisys.cpp" "/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/cmake-build-debug/CMakeFiles/Grammatics.dir/lexical_analisys.cpp.o"
   "/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/main.cpp" "/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/cmake-build-debug/CMakeFiles/Grammatics.dir/main.cpp.o"
-  "/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/semantic_analysys.cpp" "/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/cmake-build-debug/CMakeFiles/Grammatics.dir/semantic_analysys.cpp.o"
   "/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/systax_analysys_state.cpp" "/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/cmake-build-debug/CMakeFiles/Grammatics.dir/systax_analysys_state.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")

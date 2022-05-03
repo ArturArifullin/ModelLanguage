@@ -1,5 +1,13 @@
 #include "lexical_analisys.h"
 
+
+const char *
+        Scanner::TW    [] = { "", "and", "begin", "bool", "string", "do", "else", "end", "if", "false", "int", "not", "or", "program",
+                              "read", "then", "true", "var", "while", "write", "case","of", "for", "continue", "string", "step", "until", "writestr", NULL };
+
+const char *
+        Scanner::TD    [] = { "@", ";", ",", ":", ":=", "(", ")", "=", "<", ">", "+", "-", "*", "/", "<=", "!=", ">=", "%", NULL };
+
 int put ( const std::string & buf ){
     std::vector<Ident>::iterator k;
 
@@ -9,9 +17,10 @@ int put ( const std::string & buf ){
     return TID.size () - 1;
 }
 
+std::vector<std::string> TStr;
 
 Lex Scanner::get_lex () {
-    enum    state { H, IDENT, NUMB, COM, ALE, NEQ }; //states of a finite state machine
+    enum    state { H, IDENT, NUMB, COM, ALE, NEQ, STRING }; //states of a finite state machine
     int     d, j;
     std::string  buf;
     state   CS = H;
@@ -41,6 +50,8 @@ Lex Scanner::get_lex () {
                     buf.push_back (c);
                     CS  = NEQ;
                 }
+                else if (c == '"')
+                    CS = STRING;
                 else {
                     buf.push_back (c);
                     if ( ( j = look ( buf, TD) ) ){
@@ -101,6 +112,17 @@ Lex Scanner::get_lex () {
                 }
                 else
                     throw '!';
+                break;
+            case STRING:
+                while ( c != '"'){
+                    if ( c == '@')
+                        throw c;
+                    buf.push_back(c);
+                }
+                if ( buf.empty() )
+                    throw '!';
+                TStr.push_back(buf);
+                return Lex (LEX_STRING, reinterpret_cast<long>(TStr[TStr.size()-1].c_str()));
                 break;
         } //end switch
     } while (true); // break just after creating lex2

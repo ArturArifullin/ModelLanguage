@@ -92,22 +92,9 @@ CMakeFiles/Grammatics.dir/lexical_analisys.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Grammatics.dir/lexical_analisys.cpp.s"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/lexical_analisys.cpp" -o CMakeFiles/Grammatics.dir/lexical_analisys.cpp.s
 
-CMakeFiles/Grammatics.dir/semantic_analysys.cpp.o: CMakeFiles/Grammatics.dir/flags.make
-CMakeFiles/Grammatics.dir/semantic_analysys.cpp.o: ../semantic_analysys.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Grammatics.dir/semantic_analysys.cpp.o"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Grammatics.dir/semantic_analysys.cpp.o -c "/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/semantic_analysys.cpp"
-
-CMakeFiles/Grammatics.dir/semantic_analysys.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Grammatics.dir/semantic_analysys.cpp.i"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/semantic_analysys.cpp" > CMakeFiles/Grammatics.dir/semantic_analysys.cpp.i
-
-CMakeFiles/Grammatics.dir/semantic_analysys.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Grammatics.dir/semantic_analysys.cpp.s"
-	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/semantic_analysys.cpp" -o CMakeFiles/Grammatics.dir/semantic_analysys.cpp.s
-
 CMakeFiles/Grammatics.dir/systax_analysys_state.cpp.o: CMakeFiles/Grammatics.dir/flags.make
 CMakeFiles/Grammatics.dir/systax_analysys_state.cpp.o: ../systax_analysys_state.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Grammatics.dir/systax_analysys_state.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Grammatics.dir/systax_analysys_state.cpp.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Grammatics.dir/systax_analysys_state.cpp.o -c "/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/systax_analysys_state.cpp"
 
 CMakeFiles/Grammatics.dir/systax_analysys_state.cpp.i: cmake_force
@@ -120,7 +107,7 @@ CMakeFiles/Grammatics.dir/systax_analysys_state.cpp.s: cmake_force
 
 CMakeFiles/Grammatics.dir/interpratation.cpp.o: CMakeFiles/Grammatics.dir/flags.make
 CMakeFiles/Grammatics.dir/interpratation.cpp.o: ../interpratation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Grammatics.dir/interpratation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Grammatics.dir/interpratation.cpp.o"
 	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Grammatics.dir/interpratation.cpp.o -c "/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/interpratation.cpp"
 
 CMakeFiles/Grammatics.dir/interpratation.cpp.i: cmake_force
@@ -135,7 +122,6 @@ CMakeFiles/Grammatics.dir/interpratation.cpp.s: cmake_force
 Grammatics_OBJECTS = \
 "CMakeFiles/Grammatics.dir/main.cpp.o" \
 "CMakeFiles/Grammatics.dir/lexical_analisys.cpp.o" \
-"CMakeFiles/Grammatics.dir/semantic_analysys.cpp.o" \
 "CMakeFiles/Grammatics.dir/systax_analysys_state.cpp.o" \
 "CMakeFiles/Grammatics.dir/interpratation.cpp.o"
 
@@ -144,12 +130,11 @@ Grammatics_EXTERNAL_OBJECTS =
 
 Grammatics: CMakeFiles/Grammatics.dir/main.cpp.o
 Grammatics: CMakeFiles/Grammatics.dir/lexical_analisys.cpp.o
-Grammatics: CMakeFiles/Grammatics.dir/semantic_analysys.cpp.o
 Grammatics: CMakeFiles/Grammatics.dir/systax_analysys_state.cpp.o
 Grammatics: CMakeFiles/Grammatics.dir/interpratation.cpp.o
 Grammatics: CMakeFiles/Grammatics.dir/build.make
 Grammatics: CMakeFiles/Grammatics.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Grammatics"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/arturarifullin/Desktop/C_Programs/4 семестр/Grammatics/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Grammatics"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Grammatics.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

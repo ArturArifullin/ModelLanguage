@@ -1,17 +1,33 @@
 #include "interpretation.h"
-#include "lexical_analisys.h"
-#include "syntax_analysys.h"
 
 void Executer:: execute ( std::vector<Lex> & poliz ) {
     Lex pc_el;
     std::stack < int > args;
-    int i, j, index = 0, size = poliz.size();
+    long i, j, index = 0, size = poliz.size();
+    bool dup = false; int dup_v;
     while ( index < size ) {
-        pc_el = poliz [ index ];
+        pc_el = poliz [ index ]; Lex pc_el_pr;
+        if (index > 0)
+             pc_el_pr = poliz[index-1];
         switch ( pc_el.get_type () ) {
-            case LEX_TRUE: case LEX_FALSE: case LEX_NUM: case POLIZ_ADDRESS: case POLIZ_LABEL:
+            case LEX_TRUE: case LEX_FALSE: case LEX_NUM: case POLIZ_ADDRESS: case POLIZ_LABEL: case LEX_STRING:
                 args.push ( pc_el.get_value () );
                 break;
+
+            case POLIZ_DUP:
+                if ( index == 0 )
+                    throw "Why did not it work in syntax step????";
+                if ( dup )
+                    args.push(dup_v);
+                else {
+                    dup_v = pc_el_pr.get_value();
+                    dup = true;
+                    args.push(dup_v);
+                }
+                break;
+
+            case POLIZ_CASE_END:
+                dup = false;
 
             case LEX_ID:
                 i = pc_el.get_value ();
@@ -55,12 +71,22 @@ void Executer:: execute ( std::vector<Lex> & poliz ) {
                 std::cout << j << std::endl;
                 break;
 
+
+            case LEX_WRITESTR:
+                from_st ( args, j );
+                std::cout << reinterpret_cast<char*>(j) << std::endl;
+                break;
+
             case LEX_READ:
-                int k;
+                long k;
                 from_st ( args, i );
-                if ( TID[i].get_type () == LEX_INT ) {
+                if (  TID[i].get_type ()  == LEX_INT ) {
                     std::cout << "Input int value for" << TID[i].get_name () << std::endl;
                     std::cin >> k;
+                }
+                else if ( TID[i].get_type ()  == LEX_STRING ){
+                    std::cout << "Input string for" << TID[i].get_name () << std::endl;
+                    k = reinterpret_cast <long> ( TID[i].get_link_str() );
                 }
                 else {
                     std::string j;
@@ -155,6 +181,7 @@ void Executer:: execute ( std::vector<Lex> & poliz ) {
                 TID[j].put_value (i);
                 TID[j].put_assign ();
                 break;
+
 
             default:
                 throw "POLIZ: unexpected elem";
