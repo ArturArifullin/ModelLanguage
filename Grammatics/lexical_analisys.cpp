@@ -2,20 +2,23 @@
 
 
 const char *
-        Scanner::TW    [] = { "", "and", "begin", "bool", "string", "do", "else", "end", "if", "false", "int", "not", "or", "program",
+        Scanner::TW    [] = { "", "and", "begin", "bool", "do", "else", "end", "if", "false", "int", "not", "or", "program",
                               "read", "then", "true", "var", "while", "write", "case","of", "for", "continue", "string", "step", "until", "writestr", NULL };
 
 const char *
         Scanner::TD    [] = { "@", ";", ",", ":", ":=", "(", ")", "=", "<", ">", "+", "-", "*", "/", "<=", "!=", ">=", "%", NULL };
 
+std::vector<Ident> TID = std::vector<Ident>{};
+
 int put ( const std::string & buf ){
     std::vector<Ident>::iterator k;
 
     if ( ( k = find ( TID.begin (), TID.end (), buf ) ) != TID.end () )
-    return k - TID.begin();
+        return k - TID.begin();
     TID.push_back ( Ident(buf) );
     return TID.size () - 1;
 }
+
 
 std::vector<std::string> TStr;
 
@@ -67,6 +70,7 @@ Lex Scanner::get_lex () {
                 }
                 else {
                     ungetc ( c, fp );
+
                     if ( (j = look ( buf, TW) ) ) {
                         return Lex ( (type_of_lex) j, j );
                     }
@@ -118,11 +122,13 @@ Lex Scanner::get_lex () {
                     if ( c == '@')
                         throw c;
                     buf.push_back(c);
+                    gc();
                 }
                 if ( buf.empty() )
                     throw '!';
                 TStr.push_back(buf);
-                return Lex (LEX_STRING, reinterpret_cast<long>(TStr[TStr.size()-1].c_str()));
+                std::string temp_str = buf;
+                return Lex (LEX_STRING, reinterpret_cast<long>(TStr[TStr.size()-1].c_str()), temp_str );
                 break;
         } //end switch
     } while (true); // break just after creating lex2
@@ -132,6 +138,10 @@ std::ostream & operator<< ( std::ostream &s, Lex l ) {
     std::string t;
     if ( l.t_lex <= LEX_WRITE )
         t = Scanner::TW[l.t_lex];
+    else if  ( l.t_lex == LEX_PERCENT )
+        t = "%";
+    else if ( l.t_lex == LEX_CONTINUE )
+        t = "continue";
     else if ( l.t_lex >= LEX_FIN && l.t_lex <= LEX_GEQ )
         t = Scanner::TD[ l.t_lex - LEX_FIN ];
     else if ( l.t_lex == LEX_NUM )
@@ -146,6 +156,16 @@ std::ostream & operator<< ( std::ostream &s, Lex l ) {
         t = "!";
     else if ( l.t_lex == POLIZ_FGO )
         t = "!F";
+    else if ( l.t_lex == LEX_STRING)
+        t = "STRING";
+    else if ( l.t_lex == LEX_CASE )
+        t = "CASE";
+    else if ( l.t_lex == POLIZ_CASE_END )
+        t = "CASE END";
+    else if ( l.t_lex == POLIZ_DUP )
+        t = "DUP";
+    else if ( l.t_lex == POLIZ_CASE_START )
+        t = "CASE START";
     else
         throw l;
     s << '(' << t << ',' << l.v_lex << ");" << std::endl;

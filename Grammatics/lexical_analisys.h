@@ -25,20 +25,26 @@ enum type_of_lex {
     POLIZ_FGO,                                                                                  /*50*/
     POLIZ_DUP,                                                                                  /*51*/
     POLIZ_CASE_END,                                                                             /*52*/
+    POLIZ_CASE_START                                                                            /*53*/
 };
 
 class Lex {
-    type_of_lex   t_lex;
+    type_of_lex    t_lex;
     long           v_lex;
+    std::string    s_lex;
 public:
-    Lex ( type_of_lex t = LEX_NULL, int v = 0 ): t_lex (t), v_lex (v)  { } // LEX_NULL - empty lex
+    Lex ( type_of_lex t = LEX_NULL, int v = 0, std::string s = ""): t_lex (t), v_lex (v), s_lex(s) { } // LEX_NULL - empty lex
     type_of_lex  get_type () const {
         return t_lex;
     }
     long get_value () const {
         return v_lex;
     }
+    std::string get_str(){
+        return s_lex;
+    }
     friend std::ostream & operator<< ( std::ostream &s, Lex l ); // just for debugging
+
 };
 
 class Ident { // during lex analysis, we'll have table of ident (TID), which we can use in future
@@ -47,8 +53,9 @@ class Ident { // during lex analysis, we'll have table of ident (TID), which we 
     type_of_lex type;
     bool        assign;
     long          value;
-    std::string probably_string;
+
 public:
+    std::string probably_string;
     Ident() {
         declare = false;
         assign  = false;
@@ -87,6 +94,9 @@ public:
     }
     void put_value ( long v ) {
         value     = v;
+    }
+    void put_string ( std::string s){
+        probably_string = s;
     }
     void string_console(){
         std::getline(std::cin, probably_string);

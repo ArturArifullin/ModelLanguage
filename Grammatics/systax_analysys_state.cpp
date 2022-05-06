@@ -13,9 +13,11 @@ void Parser::analyze () {
         throw curr_lex;
 
     //for_each( poliz.begin(), poliz.end(), [](Lex l){ cout << l; });
+    std::cout << std::endl << "POLIZ REPORT:" << std::endl;
     for ( Lex l : poliz )
         std::cout << l;
-    std::cout << std::endl << "Yes!!!" << std::endl;
+    std::cout << std::endl << "CONSOLE:" << std::endl;
+
 }
 
 void Parser::P () {
@@ -134,16 +136,18 @@ void Parser::S () {
     else if ( c_type == LEX_CASE ){
         gl();
         E();
-        eq_bool();
+        poliz.push_back(Lex(POLIZ_CASE_START));
+        eq_int();
         if ( c_type == LEX_OF ){
-            gl();
+//          gl();
             V();
-
-            gl();
+//            gl();
             if ( c_type != LEX_END )
                 throw curr_lex;
-            else
+            else {
                 poliz.push_back(Lex(POLIZ_CASE_END));
+                gl();
+            }
         }
 
     }
@@ -177,7 +181,7 @@ void Parser::S () {
                 gl();
                 E();
                 eq_type(); //!
-                eq_int();//!!!!!!
+         //       eq_int();//!!!!!!
                 poliz.push_back(Lex(LEX_ASSIGN));
 
                 pl0 = poliz.size();
@@ -191,26 +195,27 @@ void Parser::S () {
                     E();
                     eq_int();
                     poliz.push_back(Lex(LEX_PLUS));
+                    poliz.push_back(Lex(LEX_ASSIGN));
                     if ( c_type == LEX_UNTIL ){
                         poliz.push_back(InVal);
                         gl();
                         E();
                         eq_int();
 
-                        poliz.push_back(Lex(LEX_NEQ));
+                        poliz.push_back(Lex(LEX_LEQ));
                         pl2 = poliz.size();
                         poliz.push_back(Lex());
                         poliz.push_back(Lex(POLIZ_FGO));
-                        poliz[pl0] = Lex(POLIZ_GO, poliz.size());
+                        poliz[pl0] = Lex(POLIZ_LABEL, poliz.size());
 
                         if ( c_type == LEX_DO ){
                             gl();
-                            st_loop.push(pl0);
+                            st_loop.push(pl1);
 
                             S();
                             poliz.push_back ( Lex ( POLIZ_LABEL, pl1 ) );
                             poliz.push_back ( Lex ( POLIZ_GO) );
-                            poliz[pl2] = Lex(POLIZ_GO, poliz.size());
+                            poliz[pl2] = Lex(POLIZ_LABEL, poliz.size());
 
                             st_loop.pop();
                         }
@@ -233,6 +238,7 @@ void Parser::S () {
         if ( st_loop.empty() )
             throw curr_lex;
         else{
+            gl();
             poliz.push_back( Lex (POLIZ_LABEL, st_loop.top() ) );
             poliz.push_back( Lex (POLIZ_GO) );
         }
@@ -306,11 +312,11 @@ void Parser::S () {
 }
 
 void Parser::V(){
-    gl();
+  //  gl();
     V1();
     //POLIZ
-    while ( c_type == LEX_COMMA ){
-        gl();
+    while ( c_type == LEX_COMMA ){ //!
+        //gl();
         V1();
         //POLIZ
     }
@@ -318,8 +324,9 @@ void Parser::V(){
 
 void Parser::V1(){
     int pl0;
-    gl();
+    //gl();
     poliz.push_back(Lex(POLIZ_DUP));
+    gl();
     F();
     poliz.push_back(Lex(LEX_EQ));
     while ( c_type == LEX_COMMA ){
@@ -364,7 +371,7 @@ void Parser::E1 () {
 
 void Parser::T () {
     F ();
-    while ( c_type == LEX_TIMES || c_type == LEX_SLASH || c_type == LEX_AND || LEX_PERCENT ) {
+    while ( c_type == LEX_TIMES || c_type == LEX_SLASH || c_type == LEX_AND || c_type == LEX_PERCENT ) {
         st_lex.push ( c_type );
         gl ();
         F ();
@@ -381,6 +388,11 @@ void Parser::F () {
     else if ( c_type == LEX_NUM ) {
         st_lex.push ( LEX_INT );
         poliz.push_back ( curr_lex );
+        gl ();
+    }
+    else if ( c_type == LEX_STRING ){
+        st_lex.push ( LEX_STRING );
+        poliz.push_back(curr_lex);
         gl ();
     }
     else if ( c_type == LEX_TRUE ) {
