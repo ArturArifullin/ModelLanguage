@@ -41,6 +41,23 @@ program
     a, b, i, j : int,
     bo: bool;
 begin
+    read(a);
+    read(b);
+    if ( a > b ) then
+        write(a)
+    else
+        write(b);
+    read(q);
+    write(q)
+end@
+```
+###### Other example:
+```
+program
+    var q, k: string,
+    a, b, i, j : int,
+    bo: bool;
+begin
 
     a := 2;
     case a+8 of
