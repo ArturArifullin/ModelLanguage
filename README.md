@@ -32,3 +32,48 @@ L  -> true | false
 I  -> a | b | ... | z | Ia | ... | Iz | I1 | ... | I9 | I0
 N  -> 0 | ... | 9 | N0 | ... | N9
 ```
+#### Testing of interpetator
+###### Write your program to file called "prog.txt"
+###### Example of test program. Please, pay attention to delimiters between operators. There is not any delimiter before "end"
+```
+program
+    var q, k: string,
+    a, b, i, j : int,
+    bo: bool;
+begin
+
+    a := 2;
+    case a+8 of
+        1, 10: write(1),
+        3, 5, 7 , 9: write(2)
+    end;
+
+    bo := true and false or true;
+    write(bo);
+
+    for i = 1 step 1 until 5 do
+        for j = 1 step 2 until 9 do
+            case i + j of
+                1: write("one"),
+                2: write("two"),
+                3: write("three"),
+                4: write("four"),
+                5: for a = 1 step 1 until 5 do
+                    write(a)
+            end;
+
+
+    a := 1; b:= 10;
+    q := "Hi"; k := "Hello";
+    case a+b of
+        10: write("?"),
+        11: case a+b+i of
+                10: write(k),
+                16, 17: write(q)
+            end
+    end;
+
+    write("Bye")
+end@
+```
+
